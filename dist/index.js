@@ -47,8 +47,8 @@ function run() {
         const postmanAPIKey = core.getInput('postmanAPIKey');
         const swaggerPath = core.getInput('swaggerPath');
         core.debug(`got inputs: postmanAPIKey=${postmanAPIKey} swaggerPath=${swaggerPath}`);
-        const filePath = path_1.default.join(__dirname, '/../.eslintrc');
-        core.debug(`reading from path ${filePath}`);
+        const filePath = path_1.default.join(__dirname, swaggerPath);
+        core.debug(`reading swagger from path ${filePath}`);
         const buffer = yield util_1.promisify(fs_1.readFile)(filePath);
         core.debug(buffer.toString());
     });

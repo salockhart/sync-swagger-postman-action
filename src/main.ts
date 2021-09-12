@@ -10,8 +10,9 @@ async function run(): Promise<void> {
     `got inputs: postmanAPIKey=${postmanAPIKey} swaggerPath=${swaggerPath}`,
   );
 
-  const filePath = path.join(__dirname, '/../.eslintrc');
-  core.debug(`reading from path ${filePath}`);
+  const filePath = path.join(__dirname, swaggerPath);
+  core.debug(`reading swagger from path ${filePath}`);
+
   const buffer = await promisify(readFile)(filePath);
   core.debug(buffer.toString());
 }
