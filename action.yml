@@ -5,6 +5,9 @@ inputs:
   postmanAPIKey:
     description: API Key for your Postman account
     required: true
+  swaggerPath:
+    description: Path to your swagger.json file
+    required: true
 runs:
   using: "node12"
   main: "dist/index.js"
