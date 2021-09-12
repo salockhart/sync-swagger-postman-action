@@ -1,6 +1,7 @@
 import * as core from '@actions/core';
 import { readFile } from 'fs';
 import path from 'path';
+import * as process from 'process';
 import { promisify } from 'util';
 
 async function run(): Promise<void> {
@@ -10,7 +11,10 @@ async function run(): Promise<void> {
     `got inputs: postmanAPIKey=${postmanAPIKey} swaggerPath=${swaggerPath}`,
   );
 
-  const filePath = path.join(__dirname, swaggerPath);
+  const filePath = path.join(
+    process.env.GITHUB_WORKSPACE ?? __dirname,
+    swaggerPath,
+  );
   core.debug(`reading swagger from path ${filePath}`);
 
   const buffer = await promisify(readFile)(filePath);
