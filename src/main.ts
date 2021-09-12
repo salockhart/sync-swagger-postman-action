@@ -1,4 +1,7 @@
 import * as core from '@actions/core';
+import { readFile } from 'fs';
+import path from 'path';
+import { promisify } from 'util';
 
 async function run(): Promise<void> {
   const postmanAPIKey = core.getInput('postmanAPIKey');
@@ -6,6 +9,11 @@ async function run(): Promise<void> {
   core.debug(
     `got inputs: postmanAPIKey=${postmanAPIKey} swaggerPath=${swaggerPath}`,
   );
+
+  const filePath = path.join(__dirname, '/../.eslintrc');
+  core.debug(`reading from path ${filePath}`);
+  const buffer = await promisify(readFile)(filePath);
+  core.debug(buffer.toString());
 }
 
 run();

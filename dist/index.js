@@ -34,13 +34,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(186));
+const fs_1 = __nccwpck_require__(747);
+const path_1 = __importDefault(__nccwpck_require__(622));
+const util_1 = __nccwpck_require__(669);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         const postmanAPIKey = core.getInput('postmanAPIKey');
         const swaggerPath = core.getInput('swaggerPath');
         core.debug(`got inputs: postmanAPIKey=${postmanAPIKey} swaggerPath=${swaggerPath}`);
+        const filePath = path_1.default.join(__dirname, '/../.eslintrc');
+        core.debug(`reading from path ${filePath}`);
+        const buffer = yield util_1.promisify(fs_1.readFile)(filePath);
+        core.debug(buffer.toString());
     });
 }
 run();
@@ -613,6 +623,13 @@ module.exports = require("os");
 /***/ ((module) => {
 
 module.exports = require("path");
+
+/***/ }),
+
+/***/ 669:
+/***/ ((module) => {
+
+module.exports = require("util");
 
 /***/ })
 
