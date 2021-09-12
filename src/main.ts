@@ -1,7 +1,11 @@
 import * as core from '@actions/core';
 
 async function run(): Promise<void> {
-  core.getInput('postmanAPIKey');
+  const postmanAPIKey = core.getInput('postmanAPIKey');
+  const swaggerPath = core.getInput('swaggerPath');
+  core.debug(
+    `got inputs: postmanAPIKey=${postmanAPIKey} swaggerPath=${swaggerPath}`,
+  );
 }
 
 run();
