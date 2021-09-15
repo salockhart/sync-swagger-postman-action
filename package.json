@@ -1,0 +1,50 @@
+{
+  "name": "sync-swagger-postman-action",
+  "version": "0.0.0",
+  "private": true,
+  "description": "TypeScript template action",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write **/*.ts",
+    "format-check": "prettier --check **/*.ts",
+    "lint": "eslint src/**/*.ts",
+    "package": "ncc build --source-map --license licenses.txt",
+    "test": "jest",
+    "all": "npm run build && npm run format && npm run lint && npm run package && npm test",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salockhart/sync-swagger-postman-action.git"
+  },
+  "keywords": [
+    "actions",
+    "node",
+    "swagger",
+    "postman"
+  ],
+  "author": "Alex Lockhart",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.4.0",
+    "got": "^11.8.2",
+    "swagger2-postman2-converter": "0.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^16.3.3",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.28.3",
+    "@vercel/ncc": "^0.29.0",
+    "eslint": "^7.31.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.2",
+    "jest": "^27.0.6",
+    "js-yaml": "^4.1.0",
+    "prettier": "2.2.1",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.1.3"
+  }
+}
