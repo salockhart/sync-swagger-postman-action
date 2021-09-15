@@ -5,9 +5,13 @@ inputs:
   postmanAPIKey:
     description: API Key for your Postman account
     required: true
+  postmanCollectionID:
+    description: ID of the collection to sync swagger to
+    required: true
   swaggerPath:
     description: Path to your swagger.json file
-    required: true
+    required: false
+    default: swagger.json
 runs:
   using: "node12"
   main: "dist/index.js"
