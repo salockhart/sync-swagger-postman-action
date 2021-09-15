@@ -18,5 +18,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./
         with:
-          postmanAPIKey: 'api key'
-          swaggerPath: 'swagger.json'
+          postmanAPIKey: ${{ secrets.POSTMAN_API_KEY }}
+          postmanCollectionID: 3a5c9f33-3c5c-4c2e-a354-b15668f62501
