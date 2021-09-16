@@ -32,6 +32,7 @@
     "swagger2-postman2-converter": "0.0.3"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.3",
     "@types/node": "^16.3.3",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.28.3",
