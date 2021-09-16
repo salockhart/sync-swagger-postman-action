@@ -1,6 +1,9 @@
 name: "Sync Swagger to Postman"
 description: "Syncs a Swagger 2.0 file to a Postman collection"
 author: "Alex Lockhart"
+branding:
+  icon: cloud
+  color: purple
 inputs:
   postmanAPIKey:
     description: API Key for your Postman account
